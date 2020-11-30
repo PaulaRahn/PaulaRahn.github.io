@@ -20,13 +20,23 @@ var init = function (window) {
         ////////////////////////////////////////////////////////////
         
         // TODO 1 : Declare and initialize our variables
-
+        var circle;			// variable to hold a single circle when creating circles / iterating
+        var circles = [];	// variable to store all circles in one Array
 
         // TODO 2 : Create a function that draws a circle 
-        
+        function drawCircle() {
+            // Code to draw a circle
+            circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
+            physikz.addRandomVelocity(circle, canvas, 100, 100);
+            view.addChild(circle);
+            circles.push(circle);
+        }
 
         // TODO 3 / 7 : Call the drawCircle() function 
-
+        for (var i = 0; i < 100; i++) {
+            drawCircle();
+        }
+        
 
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
@@ -39,13 +49,26 @@ var init = function (window) {
         */
         function update() {
             // TODO 4 : Update the circle's position //
-
+            /*physikz.updatePosition(circles[0]);
+	        physikz.updatePosition(circles[1]);
+	        physikz.updatePosition(circles[2]);
+	        physikz.updatePosition(circles[3]);
+	        physikz.updatePosition(circles[4]);*/
             
             // TODO 5 : Call game.checkCirclePosition() on your circles.
-           
+            /*game.checkCirclePosition(cicles[0]);
+            game.checkCirclePosition(cicles[1]);
+            game.checkCirclePosition(cicles[2]);
+            game.checkCirclePosition(cicles[3]);
+            game.checkCirclePosition(cicles[4]);*/
 
             // TODO 8 : Iterate over the array
-           
+            for (var i = 0; i < circles.length; i++) {
+                var eachValue = circles[i];
+                physikz.updatePosition(eachCircle);
+                game.checkCirclePosition(eachCircle);
+                
+            }
             
         }
     
@@ -62,7 +85,15 @@ var init = function (window) {
             }
             
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            
+            if (circle.x > canvas.height) {
+                circle.x = 0;
+            }
+            if (circle.y > canvas.width) {
+                circle.y = 0;
+            }
+            if (circle.y > canvas.height) {
+                circle.y = 0;
+            }
 
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
