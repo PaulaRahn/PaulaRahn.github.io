@@ -85,14 +85,14 @@ var init = function (window) {
             }
             
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            if (circle.x > canvas.height) {
-                circle.x = 0;
+            if (circle.x < 0) {
+                circle.x = circle.x * 1;
             }
             if (circle.y > canvas.width) {
                 circle.y = 0;
             }
-            if (circle.y > canvas.height) {
-                circle.y = 0;
+            if (circle.y < 0) {
+                circle.y = circle.y * 1;
             }
 
 
