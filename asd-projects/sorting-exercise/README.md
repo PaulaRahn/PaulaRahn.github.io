@@ -50,8 +50,6 @@ git push
 * TODO 4 - 15 points 
 * TODO 5 - 15 points 
 * TODO 6 - 0 points
-* Challenge - 10 points (bonus)
-**NOTE:** the bonus will not give you a score of over 100 should you earn that many points, but can be done as an alternative to the required TODOs.
 
 # TODOs
 
@@ -203,7 +201,7 @@ Here is a description of the function you must create.
 
     * **3b-1)** Check if `quickSort` should even run
         
-        >**DETAILS:** Check if the `array` length is greater than `1`. If it is not, then you do not need to do anything else in the function (you can simply put `return`). If it is, **then all of the code in substeps 3b-2 through 3b-4 should be run.**
+        >**DETAILS:** Check if `right - left` is greater than `0`. If it is not, then you do not need to do anything else in the function (you can simply put `return`). If it is, **then all of the code in substeps 3b-2 through 3b-4 should be run.**
 
     * **3b-2)** Call and use the `partition` function
         

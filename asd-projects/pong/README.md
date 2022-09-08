@@ -180,6 +180,8 @@ Use objects to manage this data. For example, in bouncing box, we could organize
 var box = {};
 box.x = 0;
 box.y = 100;
+box.width = 200;
+box.height = 200;
 box.speedX = 1;
 box.speedY = 1;
 box.id = "#box";
@@ -196,12 +198,14 @@ function moveBox() {
 }
 ```
 
-Since you'll be creating objects to represent the ball and each paddle, I highly recommend using a factory function to ensure that each `gameItem` has the data below:
+Since you'll be creating objects to represent the ball and each paddle, use a factory function to ensure that each `gameItem` has the data below:
 - `gameItem.id`
 - `gameItem.x`
 - `gameItem.y`
 - `gameItem.speedX`
 - `gameItem.speedY`
+- `gameItem.width`
+- `gameItem.height`
 
 When creating a factory function, the function should return an object that has a specific set of properties already assigned to it. The properties that you want customized for each object should be **parameterized** (turned into parameters/variables).
 
