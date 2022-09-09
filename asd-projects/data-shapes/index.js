@@ -50,10 +50,10 @@ $(document).ready(function () {
   for (var i = 0; i <= dataShapes.length - 1; i++) {
     var currentShape = dataShapes[i];
 
-    if (currentShape === "red") {
+    if (currentShape.color === "red") {
       currentShape.goodBehavior="bounce";
     }
-    else if (currentShape === "blue") {
+    else if (currentShape.color === "blue") {
       currentShape.goodBehavior="blink";
     }
     else {
