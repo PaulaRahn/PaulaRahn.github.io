@@ -51,13 +51,13 @@ $(document).ready(function () {
     var currentShape = dataShapes[i];
 
     if (currentShape === "red") {
-      currentShape.goodBehavior.push("bounce");
+      currentShape.goodBehavior.assignments("bounce");
     }
     else if (currentShape === "blue") {
-      currentShape.goodBehavior.push("blink");
+      currentShape.goodBehavior.assignments("blink");
     }
     else {
-      currentShape.goodBehavior.push("spin");
+      currentShape.goodBehavior.assignments("spin");
     }
   }
 
