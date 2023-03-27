@@ -48,9 +48,14 @@ for (var i = 0; i < image.length; i++){
 
 var rgbNumbers = rgbStringToArray(rgbString);
 
-for (var i = RED; i < rgbNumbers < image.length; i++){
-  rgbNumbers[i] = 255;
+for (var i = 0; i < image.length; i++){
+  for (var j = 0; j < image.length; j++){
+    if (image[i][j] === RED){
+      color = "rgb(255, 0, 0)";
+    }
+  }
 }
+
 // TODO 7: Create the applyFilterNoBackground function
 
 
