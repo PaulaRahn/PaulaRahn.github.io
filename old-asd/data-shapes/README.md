@@ -74,7 +74,7 @@ To show that you read this, add a comment on line 39 that says `"// TODO 0 compl
 
 By default, the program produces data for 26 different objects automatically. You will need to create a 27th object and add it to the end of the `dataShapes` array.
 
-- **1a)** Create a variable called `shape` and give it an object with the following properties:
+- **1a)** Create a variable called `shape` and give it the following properties:
 
   - key: `color`, value: `"blue"`
   - key: `shape`, value: `"circle"`
@@ -117,7 +117,7 @@ This TODO will allow you to finally display shapes by clicking the "Display" but
   1. Call the function `setBackgroundWithObject` (already created for you), and pass in `data` as its only argument
   2. Set `animationDetails.displayType` to store `1`
 
-- **3b)** Find where TODO 3b is listed in your code. There, call your `handleStatic` function. It should take the current shape object as an argument. Check the below HINT for how to access the current shape, as it is *not* referring to the `currentShape` variable.
+- **3b)** Find where TODO 3b is listed in your code. There, call your `handleStatic` function. It should take the current shape object as an argument.
 
 > **HINT:** `dataShapes` is your array of shape objects. The current index being displayed is stored in a variable called `currentIndex`. How can you use that to get the correct object from your `dataShapes` array and pass it into `handleStatic`?
 

@@ -58,7 +58,6 @@ git push
 * Challenge 1 - 5 points (bonus)
 * Challenge 2 - 5 points (bonus)
 * Challenge 3 - 10 points (bonus)
-
 **NOTE:** the bonus will not give you a score of over 100 should you earn that many points, but these challenges will help you out much later if you can do them.
 
 # Lesson Steps
@@ -86,8 +85,6 @@ This produces a basic game board with a single game item on the board. If you ne
 All elements will have unique `id` attributes, which means that you can select them using the appropriate CSS selectors whenever using jQuery or CSS.
 
 * **1a)** Change the `id` of `'gameItem'` to be `'walker'`
-
->**NOTE:** When you do this, the box will no longer display. This will be remedied in the next step.
 
 <hr>
 
@@ -234,7 +231,6 @@ Now that we have our data tracking in place, we need to use that data to actuall
 * **5c)** Call each function on each `newFrame`.
 
 **HINT:** Use the `"top"` CSS property to draw the box `y` pixels from the `"top"`
-
 **HINT:** Check what the id of the GameItem is for your jQuery statements.
 
 >Save your code and refresh the game. If you try pressing keys you'll notice that the box isn't moving. 
