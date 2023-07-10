@@ -90,10 +90,10 @@ function moveSnake() {
   for (var i = 1; i <= snake.body.length - 1; i++) {
     var snakeSquare = snake.body[i];
     
-    var nextSnakeSquare = snakeSquare + 1;
-    var nextRow = "???";
-    var nextColumn = "???";
-    var nextDirection = "???";
+    var nextSnakeSquare = snake.body[snake.body.length];
+    var nextRow = ROWS + 1;
+    var nextColumn = COLUMNS + 1;
+    var nextDirection = checkForNewDirection();
     
     snakeSquare.direction = nextDirection;
     snakeSquare.row = nextRow;
@@ -195,16 +195,16 @@ function handleAppleCollision() {
   
   // code to determine the row and column of the snakeSquare to add to the snake
   if (snake.tail.direction === "right") {
-    column = snake.tail.column + 1;
+    column = column + 1;
   }
   if (snake.tail.direction === "left") {
-    column = snake.tail.column - 1;
+    column = column - 1;
   }
   if (snake.tail.direction === "up") {
-     row = snake.tail.row - 1;
+     row = row - 1;
   }
   if (snake.tail.direction === "down") {
-    row = snake.tail.row + 1;
+    row = row + 1;
   }
   makeSnakeSquare(row, column);
 }
@@ -218,7 +218,12 @@ function hasCollidedWithSnake() {
   head and each part of the snake's body also knows its own row and column.
   
   */
-  
+  for (var i = 1; i <= snake.body.length - 1; i++) {
+      if (snake.body[i] === snake.head) {
+        return true;
+      }
+  }
+
   return false;
 }
 
@@ -339,6 +344,7 @@ function getRandomAvailablePosition() {
   while (!spaceIsAvailable) {
     randomPosition.column = Math.floor(Math.random() * COLUMNS);
     randomPosition.row = Math.floor(Math.random() * ROWS);
+    
     spaceIsAvailable = true;
     
     /*
