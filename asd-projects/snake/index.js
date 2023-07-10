@@ -87,13 +87,13 @@ function moveSnake() {
   column/row properties. 
   
   */
-  for (var i = 1; i <= snake.body.length - 1; i++) {
+  for (var i = snake.body.length -1; i > 0; i--) {
     var snakeSquare = snake.body[i];
     
-    var nextSnakeSquare = snake.body[snake.body.length];
-    var nextRow = snakeSquare.row + 1;
-    var nextColumn = snakeSquare.column + 1;
-    var nextDirection = snakeSquare.direction;
+    var nextSnakeSquare = snake.body[i - 1];
+    var nextRow = nextSnakeSquare.row;
+    var nextColumn = nextSnakeSquare.column;
+    var nextDirection = checkForNewDirection();
     
     snakeSquare.direction = nextDirection;
     snakeSquare.row = nextRow;
@@ -345,6 +345,11 @@ function getRandomAvailablePosition() {
     randomPosition.column = Math.floor(Math.random() * COLUMNS);
     randomPosition.row = Math.floor(Math.random() * ROWS);
     
+    for (var i = 0; i < snake.body.length; i++) {
+      if (snake.row === randomPosition.row && snake.column === randomPosition.column) {
+        spaceIsAvailable = true;
+      }
+    }
     spaceIsAvailable = true;
     
     /*
