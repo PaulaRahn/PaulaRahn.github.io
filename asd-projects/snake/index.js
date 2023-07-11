@@ -164,9 +164,6 @@ function hasCollidedWithApple() {
   if(snake.head.row === apple.row && snake.head.row === apple.column) {
     return true;
   }
-  else if (snake.head.column === apple.column && snake.head.row === apple.row) {
-    return true;
-  }
   else {
     return false;
   }
@@ -349,7 +346,7 @@ function getRandomAvailablePosition() {
     
     for (var i = 0; i < snake.body.length; i++) {
       if (snake.row === randomPosition.row && snake.column === randomPosition.column) {
-        spaceIsAvailable = true;
+        spaceIsAvailable = false;
       }
     }
     spaceIsAvailable = true;
