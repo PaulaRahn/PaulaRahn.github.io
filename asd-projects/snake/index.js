@@ -219,15 +219,11 @@ function hasCollidedWithSnake() {
   
   */
   for (var i = 1; i <= snake.body.length - 1; i++) {
-      if (snake.body[i] === snake.head) {
-        return true;
+      if (snake.body[i].row === snake.head.row) {
+        if (snake.body[i].column === snake.head.column) {
+          return true;
       }
-      if (snake.body[i] === snake.row) {
-        return true;
-      }
-      if (snake.body[i] === snake.column) {
-        return true;
-      }
+    }
   }
 
   return false;
