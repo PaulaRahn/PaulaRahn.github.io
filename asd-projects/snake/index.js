@@ -222,6 +222,12 @@ function hasCollidedWithSnake() {
       if (snake.body[i] === snake.head) {
         return true;
       }
+      if (snake.body[i] === snake.row) {
+        return true;
+      }
+      if (snake.body[i] === snake.column) {
+        return true;
+      }
   }
 
   return false;
@@ -234,16 +240,16 @@ function hasHitWall() {
   
   HINT: What will the row and column of the snake's head be if this were the case?
   */
-  if(snake.head.row === ROWS) {
+  if(snake.head.row > ROWS) {
     return true;
   }
-  else if (snake.head.row === 0){
+  else if (snake.head.row < 0){
     return true;
   }
-  else if(snake.head.column === COLUMNS) {
+  else if(snake.head.column > COLUMNS) {
     return true;
   }
-  else if(snake.head.column === 0) {
+  else if(snake.head.column < 0) {
     return true;
   }
   else {
