@@ -34,7 +34,7 @@ function applyAndRender() {
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2 & 4: Create the applyFilter function here
-function applyFilter(filterFunction) {
+function applyFilterNoBackgroung(filterFunction) {
   for (var r = 0; r < image.length; r++){
     var row = image[r];
 
@@ -42,10 +42,6 @@ function applyFilter(filterFunction) {
       var rgbString = image[r][c];
 
       if (rgbString !== image[0][0]){
-        applyFilter(decreaseBlue);
-        applyFilter(increaseGreenByBlue);
-      }
-      else{
         var rgbNumbers = rgbStringToArray(rgbString);
 
         filterFunction(rgbNumbers);
@@ -59,7 +55,7 @@ function applyFilter(filterFunction) {
 }
 
 // TODO 7: Create the applyFilterNoBackground function
-function applyFilterNoBackground(){
+function applyFilter(){
   for (var r = 0; r < image.length; r++){
     var row = image[r];
 
@@ -85,61 +81,16 @@ function keepInBounds(num){
 
 // TODO 3: Create reddify function
 function reddify(arr) {
-  for (var r = 0; r < image.length; r++){
-    var row = image[r];
-
-    for(var c = 0; c < row.length; c++){
-      var rgbString = image[r][c];
-
-      var rgbNumbers = rgbStringToArray(rgbString);
-
-      rgbNumbers[RED] = 200;
-      
-      
-      rgbString = rgbArrayToString(rgbNumbers);
-      
-      image[r][c] = rgbString;
-    }
-  }
+  arr[RED] = 200;
 }
 
 // TODO 6: Create more filter functions
 function decreaseBlue(arr1){
-  for (var r = 0; r < image.length; r++){
-    var row = image[r];
-
-    for(var c = 0; c < row.length; c++){
-      var rgbString = image[r][c];
-
-      var rgbNumbers = rgbStringToArray(rgbString);
-
-      rgbNumbers[BLUE] = keepInBounds(rgbNumbers[BLUE] - 50);
-      
-      
-      rgbString = rgbArrayToString(rgbNumbers);
-      
-      image[r][c] = rgbString;
-    }
-  }  
+  arr1[BLUE] = keepInBounds(arr1[BLUE] - 50);
 }
 
 function increaseGreenByBlue(arr2){
-  for (var r = 0; r < image.length; r++){
-    var row = image[r];
-
-    for(var c = 0; c < row.length; c++){
-      var rgbString = image[r][c];
-
-      var rgbNumbers = rgbStringToArray(rgbString);
-
-      rgbNumbers[GREEN] = keepInBounds(rgbNumbers[BLUE] + rgbNumbers[GREEN]);
-      
-      
-      rgbString = rgbArrayToString(rgbNumbers);
-      
-      image[r][c] = rgbString;
-    }
-  }  
+  arr2[GREEN] = keepInBounds(arr2[BLUE] + arr2[GREEN]);
 }
 
 // CHALLENGE code goes below here
