@@ -34,7 +34,7 @@ function applyAndRender() {
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2 & 4: Create the applyFilter function here
-function applyFilterNoBackgroung(filterFunction) {
+function applyFilterNoBackground(filterFunction) {
   for (var r = 0; r < image.length; r++){
     var row = image[r];
 
@@ -55,7 +55,7 @@ function applyFilterNoBackgroung(filterFunction) {
 }
 
 // TODO 7: Create the applyFilterNoBackground function
-function applyFilter(){
+function applyFilter(filterFunction){
   for (var r = 0; r < image.length; r++){
     var row = image[r];
 
