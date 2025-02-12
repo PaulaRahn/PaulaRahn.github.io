@@ -93,7 +93,7 @@ function moveSnake() {
     var nextSnakeSquare = snake.body[i - 1];
     var nextRow = nextSnakeSquare.row;
     var nextColumn = nextSnakeSquare.column;
-    var nextDirection = checkForNewDirection();
+    var nextDirection = nextSnakeSquare.direction;
     
     snakeSquare.direction = nextDirection;
     snakeSquare.row = nextRow;
@@ -164,9 +164,9 @@ function hasCollidedWithApple() {
   if(snake.head.row === apple.row && snake.head.row === apple.column) {
     return true;
   }
-  else {
+  //else {
     return false;
-  }
+  //}
 }
 
 function handleAppleCollision() {
@@ -192,16 +192,20 @@ function handleAppleCollision() {
   
   // code to determine the row and column of the snakeSquare to add to the snake
   if (snake.tail.direction === "right") {
-    column = column + 1;
+    row = snake.tail.row;
+    column = snake.tail.column - 1;
   }
   if (snake.tail.direction === "left") {
-    column = column - 1;
+    row = snake.tail.row;
+    column = snake.tail.column + 1;
   }
   if (snake.tail.direction === "up") {
-     row = row - 1;
+    row = snake.tail.row + 1;
+    column = snake.tail.column;
   }
   if (snake.tail.direction === "down") {
-    row = row + 1;
+    row = snake.tail.row - 1;
+    column = snake.tail.column;
   }
   makeSnakeSquare(row, column);
 }
@@ -216,11 +220,15 @@ function hasCollidedWithSnake() {
   
   */
   for (var i = 1; i <= snake.body.length - 1; i++) {
-      if (snake.body[i].row === snake.head.row) {
+    var piece = snake.body[i];
+    if (piece.row === snake.head.row && piece.column === snake.head.column){
+      return true;
+    }
+    /*if (snake.body[i].row === snake.head.row) {
         if (snake.body[i].column === snake.head.column) {
           return true;
       }
-    }
+    }*/
   }
 
   return false;
@@ -236,18 +244,18 @@ function hasHitWall() {
   if(snake.head.row > ROWS) {
     return true;
   }
-  else if (snake.head.row < 0){
+  if (snake.head.row < 0){
     return true;
   }
-  else if(snake.head.column > COLUMNS) {
+  if(snake.head.column > COLUMNS) {
     return true;
   }
-  else if(snake.head.column < 0) {
+  if(snake.head.column < 0) {
     return true;
   }
-  else {
+  /*else {
     return false;
-  }
+  }*/
 }
 
 function endGame() {
@@ -345,9 +353,13 @@ function getRandomAvailablePosition() {
     randomPosition.row = Math.floor(Math.random() * ROWS);
     
     for (var i = 0; i < snake.body.length; i++) {
-      if (snake.row === randomPosition.row && snake.column === randomPosition.column) {
+      var piece = snake.body[i];
+      if (randomPosition.column === piece.column && randomPosition.row === piece.row){
         spaceIsAvailable = false;
       }
+      /*if (snake.row === randomPosition.row && snake.column === randomPosition.column) {
+        spaceIsAvailable = false;
+      }*/
     }
     spaceIsAvailable = true;
     
